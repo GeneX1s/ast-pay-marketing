@@ -1,0 +1,61 @@
+.container {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  flex: 1;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.barContainer {
+  position: relative;
+  height: 36px;
+  background-color: #F3F4F6;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 1s ease-in-out;
+}
+
+.value {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  /* Ensure text is visible. If inside bar, standard is white. If bar is narrow, it might clip.
+     For this specific design, bars look wide enough.
+  */
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}

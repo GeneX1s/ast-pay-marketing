@@ -1,65 +1,119 @@
-import Image from "next/image";
+import { 
+  Users, 
+  UserPlus, 
+  Store, 
+  TrendingUp, 
+  DollarSign, 
+  Target, 
+  BarChart 
+} from 'lucide-react';
+import StatCard from '@/components/Dashboard/StatCard';
+import FunnelChart from '@/components/Dashboard/FunnelChart';
+import CampaignList from '@/components/Dashboard/CampaignList';
+import styles from '../components/Dashboard/Dashboard.module.css';
 
-export default function Home() {
+export default function Dashboard() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className={styles.wrapper}>
+      <div className={styles.pageHeader}>
+        <div>
+          <h2 className={styles.title}>Dashboard</h2>
+          <p className={styles.subtitle}>Ringkasan performa marketing</p>
+        </div>
+        <div className={styles.actions}>
+          <button className={`${styles.btn} ${styles.btnPrimary}`}>+ Buat Kampanye</button>
+          <button className={styles.btn}>Buat Kupon</button>
+          <button className={styles.btn}>Impor Prospek</button>
+        </div>
+      </div>
+
+      <div className={styles.statsGrid}>
+        <StatCard 
+          icon={Users}
+          label="Prospek"
+          value="2,845"
+          trend="up"
+          trendValue="+12.5%"
+          subLabel="Prospek"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        <StatCard 
+          icon={UserPlus}
+          label="Pendaftar"
+          value="1,234"
+          trend="up"
+          trendValue="+8.2%"
+          subLabel="Pendaftar"
+        />
+        <StatCard 
+          icon={Store}
+          label="Merchant Aktif"
+          value="567"
+          trend="up"
+          trendValue="+15.3%"
+          subLabel="Merchant Aktif"
+        />
+        <StatCard 
+          icon={TrendingUp}
+          label="Konversi Berbayar"
+          value="23.4%"
+          trend="up"
+          trendValue="+2.1%"
+          subLabel="Konversi Berbayar"
+        />
+        <StatCard 
+          icon={DollarSign}
+          label="Pendapatan Teratribusi"
+          value="Rp 45.2M"
+          trend="up"
+          trendValue="+18.7%"
+          subLabel="Pendapatan Teratribusi"
+        />
+        <StatCard 
+          icon={Target}
+          label="CAC"
+          value="Rp 125K"
+          trend="down"
+          trendValue="-5.3%"
+          subLabel="CAC"
+        />
+        <StatCard 
+          icon={BarChart}
+          label="ROI/ROAS"
+          value="4.2x"
+          trend="up"
+          trendValue="+0.8x"
+          subLabel="ROI/ROAS"
+        />
+      </div>
+
+      <div className={styles.chartsGrid}>
+        <FunnelChart />
+        <div className={styles.trendContainer}>
+          <h3 className={styles.chartTitle}>Tren 30 Hari Terakhir</h3>
+          <div className={styles.placeholderChart}>
+            <p>Grafik tren akan ditampilkan di sini</p>
+            {/* Simple SVG Line Placeholder */}
+             <svg viewBox="0 0 500 150" className={styles.svgChart}>
+                <polyline 
+                   points="0,150 50,120 100,130 150,80 200,90 250,50 300,70 350,40 400,60 450,20 500,50"
+                   fill="none"
+                   stroke="#0066FF"
+                   strokeWidth="3"
+                />
+                <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stopColor="#0066FF" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#0066FF" stopOpacity="0" />
+                </linearGradient>
+                <polygon 
+                   points="0,150 50,120 100,130 150,80 200,90 250,50 300,70 350,40 400,60 450,20 500,50 500,150"
+                   fill="url(#gradient)"
+                />
+             </svg>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
+      
+      <CampaignList />
     </div>
   );
 }
