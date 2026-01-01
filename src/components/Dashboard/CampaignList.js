@@ -33,7 +33,9 @@ const campaigns = [
   },
 ];
 
-export default function CampaignList() {
+export default function CampaignList({ campaigns }) {
+  if (!campaigns) return null;
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>

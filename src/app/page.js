@@ -1,3 +1,6 @@
+'use client';
+
+import useSWR from 'swr';
 import { 
   Users, 
   UserPlus, 
@@ -11,8 +14,24 @@ import StatCard from '@/components/Dashboard/StatCard';
 import FunnelChart from '@/components/Dashboard/FunnelChart';
 import CampaignList from '@/components/Dashboard/CampaignList';
 import styles from '../components/Dashboard/Dashboard.module.css';
+import { fetcher } from '@/utils/fetcher';
+
+const iconMap = {
+  Users,
+  UserPlus,
+  Store,
+  TrendingUp,
+  DollarSign,
+  Target,
+  BarChart,
+};
 
 export default function Dashboard() {
+  const { data, error, isLoading } = useSWR('/api/dashboard', fetcher);
+
+  if (error) return <div className={styles.wrapper}>Failed to load</div>;
+  if (isLoading) return <div className={styles.wrapper}>Loading...</div>;
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.pageHeader}>
@@ -28,62 +47,20 @@ export default function Dashboard() {
       </div>
 
       <div className={styles.statsGrid}>
-        <StatCard 
-          icon={Users}
-          label="Prospek"
-          value="2,845"
-          trend="up"
-          trendValue="+12.5%"
-          subLabel="Prospek"
-        />
-        <StatCard 
-          icon={UserPlus}
-          label="Pendaftar"
-          value="1,234"
-          trend="up"
-          trendValue="+8.2%"
-          subLabel="Pendaftar"
-        />
-        <StatCard 
-          icon={Store}
-          label="Merchant Aktif"
-          value="567"
-          trend="up"
-          trendValue="+15.3%"
-          subLabel="Merchant Aktif"
-        />
-        <StatCard 
-          icon={TrendingUp}
-          label="Konversi Berbayar"
-          value="23.4%"
-          trend="up"
-          trendValue="+2.1%"
-          subLabel="Konversi Berbayar"
-        />
-        <StatCard 
-          icon={DollarSign}
-          label="Pendapatan Teratribusi"
-          value="Rp 45.2M"
-          trend="up"
-          trendValue="+18.7%"
-          subLabel="Pendapatan Teratribusi"
-        />
-        <StatCard 
-          icon={Target}
-          label="CAC"
-          value="Rp 125K"
-          trend="down"
-          trendValue="-5.3%"
-          subLabel="CAC"
-        />
-        <StatCard 
-          icon={BarChart}
-          label="ROI/ROAS"
-          value="4.2x"
-          trend="up"
-          trendValue="+0.8x"
-          subLabel="ROI/ROAS"
-        />
+        {data.stats.map((stat) => {
+          const IconComponent = iconMap[stat.icon];
+          return (
+            <StatCard 
+              key={stat.id}
+              icon={IconComponent}
+              label={stat.label}
+              value={stat.value}
+              trend={stat.trend}
+              trendValue={stat.trendValue}
+              subLabel={stat.subLabel}
+            />
+          );
+        })}
       </div>
 
       <div className={styles.chartsGrid}>
@@ -113,7 +90,7 @@ export default function Dashboard() {
         </div>
       </div>
       
-      <CampaignList />
+      <CampaignList campaigns={data.topCampaigns} />
     </div>
   );
 }
