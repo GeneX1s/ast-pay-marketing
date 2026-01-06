@@ -1,22 +1,22 @@
 import Link from 'next/link';
-import { 
-  LayoutDashboard, 
-  Megaphone, 
-  Users, 
-  UserPlus, 
-  Tags, 
-  FileText, 
-  Share2, 
-  FolderOpen, 
-  BarChart2, 
-  FlaskConical, 
+import {
+  LayoutDashboard,
+  Megaphone,
+  Users,
+  UserPlus,
+  Tags,
+  FileText,
+  Share2,
+  FolderOpen,
+  BarChart2,
+  FlaskConical,
   Settings,
   X
 } from 'lucide-react';
 import styles from './Sidebar.module.css';
 
 const menuItems = [
-  { icon: LayoutDashboard, label: 'Dashboard', href: '/', active: true },
+  { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard', active: true },
   { icon: Megaphone, label: 'Kampanye', href: '/kampanye' },
   { icon: Users, label: 'Audiens & Segmentasi', href: '/audiens' },
   { icon: UserPlus, label: 'Prospek (Leads)', href: '/prospek' },
@@ -41,12 +41,12 @@ export default function Sidebar({ isOpen, onClose }) {
           <X size={24} />
         </button>
       </div>
-      
+
       <nav className={styles.nav}>
         {menuItems.map((item, index) => (
-          <Link 
-            key={index} 
-            href={item.href} 
+          <Link
+            key={index}
+            href={item.href}
             className={`${styles.navItem} ${item.active ? styles.active : ''}`}
             onClick={onClose}
           >

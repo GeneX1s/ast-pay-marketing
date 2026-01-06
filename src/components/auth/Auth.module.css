@@ -1,0 +1,295 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f4fa;
+  /* Pale blue-ish background */
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.title {
+  color: #0066ff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #374151;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.formGroup {
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0066ff;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.link {
+  color: #0066ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.button {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: #6b7280;
+  /* Gray for normal login as per screenshot */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #4b5563;
+}
+
+.buttonPrimary {
+  background-color: #0066ff;
+}
+
+.buttonPrimary:hover {
+  background-color: #0052cc;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  color: #9ca3af;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #e5e7eb;
+}
+
+.divider span {
+  padding: 0 1rem;
+}
+
+.googleButton {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: white;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  transition: background-color 0.2s;
+}
+
+.googleButton:hover {
+  background-color: #f9fafb;
+}
+
+/* Loading Screen Styles */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #0066ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+.loadingText {
+  color: #1a1a1a;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.loadingSubtext {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 100px;
+  /* Position similar to screenshot */
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modalContent {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.2s ease-out;
+}
+
+.modalTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.modalText {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.btnCancel {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #374151;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btnConfirm {
+  padding: 0.5rem 1rem;
+  background: #dc2626;
+  /* Red color */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btnCancel:hover {
+  background-color: #f9fafb;
+}
+
+.btnConfirm:hover {
+  background-color: #b91c1c;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

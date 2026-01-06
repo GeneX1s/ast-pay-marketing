@@ -1,4 +1,4 @@
-import MainLayout from '@/components/Layout/MainLayout';
+import { AuthProvider } from '@/context/AuthContext';
 import './globals.css';
 
 export const metadata = {
@@ -10,9 +10,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id">
       <body>
-        <MainLayout>
+        <AuthProvider>
           {children}
-        </MainLayout>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,0 +1,266 @@
+.wrapper {
+    padding: 1.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.titleSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.topRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.backButton {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.statusBadge {
+    padding: 0.25rem 0.75rem;
+    background-color: #dcfce7;
+    color: #166534;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 999px;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-left: 2rem;
+    /* Indent to match title */
+}
+
+.actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background-color: #f9fafb;
+}
+
+/* Stats */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.statCard {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.statHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.statLabel {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.statIcon {
+    color: #0066ff;
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.25rem;
+}
+
+.statSubtext {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+.trendPositive {
+    color: #10b981;
+}
+
+.trendNegative {
+    color: #ef4444;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tab {
+    padding: 0.75rem 1rem;
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.activeTab {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.activeTab::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #1a1a1a;
+}
+
+/* Overview Layout */
+.overviewGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.cardTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+.infoRow:last-child {
+    margin-bottom: 0;
+}
+
+.infoLabel {
+    color: #6b7280;
+}
+
+.infoValue {
+    color: #1a1a1a;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Budget Styles */
+.budgetRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.budgetLabel {
+    color: #6b7280;
+}
+
+.budgetValue {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.progressContainer {
+    width: 100%;
+    height: 8px;
+    background-color: #f3f4f6;
+    border-radius: 4px;
+    margin: 0.5rem 0 1rem 0;
+    overflow: hidden;
+}
+
+.progressBar {
+    height: 100%;
+    background-color: #0066ff;
+    border-radius: 4px;
+}
+
+.spendingInfo {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.remainingBudget {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+}
+
+.remainingValue {
+    color: #10b981;
+    font-weight: 600;
+}
+
+/* Description */
+.descriptionText {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}

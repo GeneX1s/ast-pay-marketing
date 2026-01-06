@@ -59,9 +59,9 @@ export default function CampaignList({ campaigns }) {
                 {campaign.stats}
               </div>
             </div>
-            <button className={styles.detailBtn}>
+            <Link href={`/kampanye/${campaign.id}`} className={styles.detailBtn}>
               Detail
-            </button>
+            </Link>
           </div>
         ))}
       </div>
