@@ -1,20 +1,22 @@
-import { Check } from 'lucide-react';
+'use client';
+
+import { CheckCircle } from 'lucide-react';
+import styles from './UI.module.css';
 import { useEffect } from 'react';
-import styles from '../Profile/Profile.module.css'; // Using shared styles for simplicity
 
-export default function Toast({ message, onClose }) {
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            onClose();
-        }, 3000);
+export default function Toast({ message, onClose, duration = 3000 }) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onClose();
+    }, duration);
 
-        return () => clearTimeout(timer);
-    }, [onClose]);
+    return () => clearTimeout(timer);
+  }, [duration, onClose]);
 
-    return (
-        <div className={styles.toast}>
-            <Check size={16} className={styles.checkIcon} />
-            <span className={styles.toastText}>{message}</span>
-        </div>
-    );
+  return (
+    <div className={styles.toast}>
+      <CheckCircle size={20} color="var(--success)" />
+      <span>{message}</span>
+    </div>
+  );
 }

@@ -21,7 +21,7 @@ const menuItems = [
   { icon: Users, label: 'Audiens & Segmentasi', href: '/audiens' },
   { icon: UserPlus, label: 'Prospek (Leads)', href: '/prospek' },
   { icon: Tags, label: 'Penawaran & Kupon', href: '/kupon' },
-  { icon: FileText, label: 'Landing Page & Form', href: '/landing' },
+  { icon: FileText, label: 'Landing Page & Form', href: '/landing-page' },
   { icon: Share2, label: 'Referral & Partner', href: '/referral' },
   { icon: FolderOpen, label: 'Pustaka Aset', href: '/assets' },
   { icon: BarChart2, label: 'Analitik & Atribusi', href: '/analytics' },
