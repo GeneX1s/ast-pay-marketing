@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 import {
   LayoutDashboard,
   Megaphone,
@@ -15,21 +16,23 @@ import {
 } from 'lucide-react';
 import styles from './Sidebar.module.css';
 
-const menuItems = [
-  { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard', active: true },
-  { icon: Megaphone, label: 'Kampanye', href: '/kampanye' },
-  { icon: Users, label: 'Audiens & Segmentasi', href: '/audiens' },
-  { icon: UserPlus, label: 'Prospek (Leads)', href: '/prospek' },
-  { icon: Tags, label: 'Penawaran & Kupon', href: '/kupon' },
-  { icon: FileText, label: 'Landing Page & Form', href: '/landing-page' },
-  { icon: Share2, label: 'Referral & Partner', href: '/referral' },
-  { icon: FolderOpen, label: 'Pustaka Aset', href: '/assets' },
-  { icon: BarChart2, label: 'Analitik & Atribusi', href: '/analytics' },
-  { icon: FlaskConical, label: 'Eksperimen (A/B Test)', href: '/experiments' },
-  { icon: Settings, label: 'Pengaturan', href: '/settings' },
-];
-
 export default function Sidebar({ isOpen, onClose }) {
+  const { t } = useLanguage();
+
+  const menuItems = [
+    { icon: LayoutDashboard, label: t.sidebar.dashboard, href: '/dashboard', active: true },
+    { icon: Megaphone, label: t.sidebar.campaigns, href: '/kampanye' },
+    { icon: Users, label: t.sidebar.audience, href: '/audiens' },
+    { icon: UserPlus, label: t.sidebar.leads, href: '/prospek' },
+    { icon: Tags, label: t.sidebar.offers, href: '/kupon' },
+    { icon: FileText, label: t.sidebar.landingPage, href: '/landing-page' },
+    { icon: Share2, label: t.sidebar.referral, href: '/referral' },
+    { icon: FolderOpen, label: t.sidebar.assets, href: '/assets' },
+    { icon: BarChart2, label: t.sidebar.analytics, href: '/analytics' },
+    { icon: FlaskConical, label: t.sidebar.experiments, href: '/experiments' },
+    { icon: Settings, label: t.sidebar.settings, href: '/settings' },
+  ];
+
   return (
     <aside className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
       <div className={styles.header}>
